@@ -1,0 +1,14 @@
+name: KiCad Release (on merge to main)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  call:
+    uses: inkfish/inkfish_actions/.github/workflows/kicad-action.yml@main

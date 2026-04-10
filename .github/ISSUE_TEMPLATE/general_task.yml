@@ -1,0 +1,47 @@
+name: Engineering Task
+description: General task, improvement, or documentation update
+title: "[TASK] "
+labels: ["task"]
+assignees: []
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Task Description
+      placeholder: "Update README with bring-up steps; add testpoints on SPI bus..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: category
+    attributes:
+      label: Category
+      options:
+        - label: Documentation
+        - label: Refactoring / Cleanup
+        - label: Review
+        - label: Test / Validation
+        - label: CI / Automation
+        - label: Release
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+    validations:
+      required: false

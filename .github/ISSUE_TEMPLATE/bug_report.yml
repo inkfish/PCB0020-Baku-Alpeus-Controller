@@ -1,0 +1,84 @@
+name: Bug Report
+description: Report an electrical, PCB, library, or manufacturing bug
+title: "[BUG] "
+labels: ["bug"]
+assignees: []
+
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected Area
+      options:
+        - Schematic
+        - PCB Layout
+        - Library Symbol
+        - Footprint
+        - Manufacturing Output (Gerbers/Drill)
+        - Firmware Interaction
+        - Documentation
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is wrong? Keep it concise.
+      placeholder: "DRC fails due to unconnected net on U3 pin 7..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      placeholder: "DRC passes; net tied to GND via R12..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      placeholder: "DRC reports unconnected items; board fails power-up..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce / How to Observe
+      description: Include what you opened, what checks you ran, and any commands.
+      placeholder: |
+        1) Checkout commit <hash>
+        2) Open <project>.kicad_pro in KiCad
+        3) Run ERC/DRC with default rules
+        4) Observe...
+    validations:
+      required: false
+
+  - type: input
+    id: commit
+    attributes:
+      label: Commit / Tag
+      description: Where does the issue occur?
+      placeholder: "e.g. main @ 1a2b3c4 or v0.3.0"
+    validations:
+      required: false
+
+  - type: input
+    id: kicad_version
+    attributes:
+      label: KiCad Version
+      placeholder: "e.g. 8.0.2"
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Screenshots
+      description: Paste error output or attach images.
+    validations:
+      required: false

@@ -1,0 +1,67 @@
+name: Release Checklist
+description: Checklist for producing a manufacturing-ready release
+title: "[RELEASE] v"
+labels: ["release"]
+assignees: []
+
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version / Revision
+      placeholder: "e.g. v0.4.0 / Rev B"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight
+      options:
+        - label: ERC passes
+        - label: DRC passes
+        - label: Schematic annotations updated
+        - label: Footprints linked and verified
+        - label: Netlist/annotation consistency checked
+        - label: Board outline and mounting holes verified
+        - label: Project metadata updated (title block, rev, date)
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: outputs
+    attributes:
+      label: Outputs Generated
+      options:
+        - label: Gerbers generated from correct settings/profile
+        - label: Drill files generated and verified
+        - label: BOM exported (manufacturer + MPN + DNP flags)
+        - label: Pick-and-place/CPL exported (if applicable)
+        - label: Assembly drawings exported
+        - label: PDF schematic exported
+        - label: 3D/STEP exported (if applicable)
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: sanity
+    attributes:
+      label: Sanity Checks
+      options:
+        - label: Gerbers reviewed in external viewer
+        - label: Drill alignment verified
+        - label: Soldermask openings verified
+        - label: Paste layer verified (apertures, reductions)
+        - label: Silkscreen readability checked
+        - label: Test points labeled and accessible
+        - label: DNP parts clearly marked in BOM and placement
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / Exceptions
+      description: Any waivers, known issues, or special fab notes.
+    validations:
+      required: false
