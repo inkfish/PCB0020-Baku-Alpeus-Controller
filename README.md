@@ -1,2 +1,5 @@
-# ECxxxx-Template
-Electrical PCB Template stuff
+# PCB0020-Baku-Alpeus-Controller
+
+Baku Alpeus Controller
+
+
